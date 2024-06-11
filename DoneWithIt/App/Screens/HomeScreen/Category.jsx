@@ -27,7 +27,8 @@ export default function Category() {
         <Heading text={"Categories"} isViewAll={true} />
       </View>
       <FlatList
-        numColumns={4}
+        // numColumns={4}
+        horizontal
         data={category}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
@@ -59,5 +60,6 @@ const styles = StyleSheet.create({
   category: {
     flex: 1,
     alignItems: "center",
+    padding:10
   },
 });

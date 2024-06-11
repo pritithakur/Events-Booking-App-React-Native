@@ -32,7 +32,7 @@ export default function City() {
             <View style={styles.cityImage}>
               <Image source={{ uri: item?.image }} style={styles.image} />
             </View>
-            <Text style={styles.cityName}>{item.city}</Text>
+            {/* <Text style={styles.cityName}>{item.city}</Text> */}
           </View>
         )}
       />

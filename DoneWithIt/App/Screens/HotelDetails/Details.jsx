@@ -26,7 +26,7 @@ import Entypo from "@expo/vector-icons/Entypo";
 export default function Details() {
   const navigation = useNavigation();
   const { params } = useRoute();
-  const hotel = params?.hotel;
+  const event = params?.event;
   const [isReadmore, setisReadmore] = useState(false);
   const [guest, setGuest] = useState("");
   const handleguest = (text) => {
@@ -57,16 +57,16 @@ export default function Details() {
         </TouchableOpacity>
         <ScrollView style={styles.detailCont}>
           <View style={styles.imageContainer}>
-            <Image source={{ uri: hotel.image?.url }} style={styles.image} />
+            <Image source={{ uri: event.event_image }} style={styles.image} />
             <LinearGradient
               colors={["transparent", "rgba(0,0,0,0.6)"]}
               style={styles.gradientOverlay}
             />
             <View style={styles.item}>
-              <Text style={styles.name}>{hotel.name}</Text>
+              <Text style={styles.name}>{event.event_name}</Text>
               <View style={styles.banner}>
                 <Text style={{ color: Colors.WHITE, fontSize: 12, width: 320 }}>
-                  Price: {hotel.price}
+                  Price: {event.starting_price}
                 </Text>
                 <View style={styles.location}>
                   <FontAwesome6
@@ -75,7 +75,7 @@ export default function Details() {
                     style={{ paddingRight: 5, color: Colors.PRIMARY }}
                     color="black"
                   />
-                  <Text style={{ color: Colors.WHITE }}>{hotel.location}</Text>
+                  <Text style={{ color: Colors.WHITE }}>{event.city.city}</Text>
                 </View>
               </View>
               <View style={styles.starContainer}>
@@ -85,7 +85,7 @@ export default function Details() {
               </View>
             </View>
           </View>
-          {/* Facilities Section */}
+          {/* Facilities Section
           <View style={{ backgroundColor: Colors.WHITE }}>
             <Heading text="Facilities" />
             <View style={styles.service}>
@@ -106,7 +106,7 @@ export default function Details() {
                 </View>
               ))}
             </View>
-          </View>
+          </View> */}
           {/* About Section */}
 
           <View style={styles.scrollContainer}>
@@ -124,7 +124,7 @@ export default function Details() {
                 }}
                 numberOfLines={isReadmore ? 20 : 4}
               >
-                {hotel.description}
+                {event.event_description}
               </Text>
               <TouchableOpacity onPress={() => setisReadmore(!isReadmore)}>
                 <Text

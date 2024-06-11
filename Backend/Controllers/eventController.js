@@ -3,6 +3,7 @@ const { Op } = require("sequelize");
 const Event = db.events;
 const City = db.City;
 const Session = db.session;
+const Category = db.event_category;
 const moment = require("moment");
 
 // const filterEvents = (events, eventExceptions) => {
@@ -48,7 +49,7 @@ const moment = require("moment");
 
 const getEvents = async (req, res) => {
   try {
-    const { id, event_name, category_id, search } = req.query;
+    const { id, event_name, category_id, search, event_category } = req.query;
 
     // Define the common query options
     const queryOptions = {
@@ -74,6 +75,16 @@ const getEvents = async (req, res) => {
       queryOptions.where = { category_id };
       const results = await Event.findAll(queryOptions);
       res.status(200).send(results);
+    } else if (event_category) {
+      queryOptions.include.push({
+        model: Category,
+        as: "category",
+        where: {
+          name: event_category,
+        },
+      });
+      const results = await Event.findAll(queryOptions);
+      res.status(200).send(results);
     } else if (search) {
       queryOptions.where = {
         [Op.or]: [
@@ -92,8 +103,6 @@ const getEvents = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
-
-module.exports = { getEvents };
 
 const EventsthisWeak = async (req, res) => {
   try {

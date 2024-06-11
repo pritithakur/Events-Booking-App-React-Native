@@ -9,7 +9,7 @@ export default function Header() {
       <View style={styles.headContainer}>
         <View style={styles.header}>
           <View style={styles.headerText}>
-            <Text style={styles.text}>Welcome,</Text>
+            {/* <Text style={styles.text}>Welcome</Text> */}
           </View>
         </View>
         <View style={styles.search}>
@@ -28,10 +28,10 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   headContainer: {
-    backgroundColor: Colors.PRIMARY,
+    backgroundColor: Colors.PURPLE,
     borderBottomRightRadius: 30,
     borderBottomLeftRadius: 30,
-    padding: 10,
+    padding: 20,
   },
   header: {
     flexDirection: "row",

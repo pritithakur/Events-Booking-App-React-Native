@@ -101,7 +101,10 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "event_id",
       as: "session",
     });
-
+      events.belongsTo(models.event_category, {
+        foreignKey: "category_id",
+        as: "category",
+      });
     events.belongsTo(models.restaurant, {
       foreignKey: "restaurant_id",
       as: "restaurant",

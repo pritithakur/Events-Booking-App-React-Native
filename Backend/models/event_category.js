@@ -32,6 +32,12 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.NOW,
     },
   });
+  event_category.associate = (models) => {
+    event_category.hasMany(models.events, {
+      foreignKey: "category_id",
+      as: "events",
+    });
+  };
 
   return event_category;
 };
