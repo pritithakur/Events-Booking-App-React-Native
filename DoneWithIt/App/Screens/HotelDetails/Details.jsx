@@ -20,7 +20,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import Colors from "../../Utils/Colors";
 import Heading from "../../components/Heading";
 import MapView, { Marker } from "react-native-maps";
-import Hotels from "../HomeScreen/Hotels";
+import Hotels from "../HomeScreen/Events";
 import Entypo from "@expo/vector-icons/Entypo";
 
 export default function Details() {

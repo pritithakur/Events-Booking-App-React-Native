@@ -3,9 +3,9 @@ import React from "react";
 import Header from "./Header";
 import Slider from "./Slider";
 import Category from "./Category";
-import Hotels from "./Hotels";
+import Events from "./Events";
 import City from "./City";
-import HotelList from "./HotelList";
+import EventList from "./EventList";
 import TabNavigation from "../../Navigation/TabNavigation";
 import Featured from "./Featured";
 import Dance from "./Dance";
@@ -21,8 +21,8 @@ export default function Home() {
         <Featured />
         <City />
         <Dance />
-        <Hotels />
-        <HotelList />
+        <Events />
+        <EventList />
       </ScrollView>
     </View>
   );
