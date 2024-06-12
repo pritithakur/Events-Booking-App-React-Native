@@ -28,10 +28,10 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   headContainer: {
-    backgroundColor: Colors.PURPLE,
+    // backgroundColor: Colors.PURPLE,
     borderBottomRightRadius: 30,
     borderBottomLeftRadius: 30,
-    padding: 20,
+    padding: 10,
   },
   header: {
     flexDirection: "row",
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.WHITE,
     borderRadius: 10,
     padding: 10,
-    width: "80%",
+    width: "87%",
   },
   searchBtn: {
     backgroundColor: Colors.WHITE,

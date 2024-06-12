@@ -36,7 +36,7 @@ export default function Category() {
             <View style={styles.catImage}>
               <Image source={{ uri: item.icon }} style={styles.image} />
             </View>
-            <Text style={{ fontSize: 10 }}>{item.name}</Text>
+            <Text style={{ fontSize: 10, color:"white" }}>{item.name}</Text>
           </View>
         )}
       />

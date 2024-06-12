@@ -61,6 +61,7 @@ export default function EventList({ event }) {
                     fontSize: 16,
                     fontFamily: "RobotaSlab-Bold",
                     paddingLeft: 5,
+                    color:"white"
                   }}
                 >
                   {item?.event_name}
@@ -76,11 +77,11 @@ export default function EventList({ event }) {
                   name="location-dot"
                   size={18}
                   style={{ paddingRight: 5 }}
-                  color="black"
+                  color="white"
                 />
-                <Text>{item.city.city}</Text>
+                <Text style={{color:"white"}}>{item.city.city}</Text>
               </View>
-              <Text>25% off on Booking</Text>
+              <Text style={{color:"white"}}>25% off on Booking</Text>
               <Text
                 style={{
                   color: Colors.PRIMARY,
@@ -100,7 +101,7 @@ export default function EventList({ event }) {
 }
 const styles = StyleSheet.create({
   listCont: {
-    backgroundColor: Colors.WHITE,
+    backgroundColor:'rgba(0, 0, 0, 0.5)',
     padding: 10,
     marginBottom: 10,
     display: "flex",

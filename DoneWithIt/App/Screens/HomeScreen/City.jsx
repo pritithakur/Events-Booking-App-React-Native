@@ -26,13 +26,18 @@ export default function City() {
       <FlatList
         horizontal
         data={city}
-        keyExtractor={(item) => item.id.toString()} // Ensure each item has a unique key
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.cityCont}>
-            <View style={styles.cityImage}>
-              <Image source={{ uri: item?.image }} style={styles.image} />
+            <View style={styles.cityImageContainer}>
+              <Image
+                source={{ uri: item?.image }}
+                style={styles.cityImage}
+                resizeMode="cover"
+              />
+              <View style={styles.overlay} />
+              <Text style={styles.cityName}>{item.city}</Text>
             </View>
-            {/* <Text style={styles.cityName}>{item.city}</Text> */}
           </View>
         )}
       />
@@ -44,16 +49,29 @@ const styles = StyleSheet.create({
   cityCont: {
     margin: 5,
   },
-  cityImage: {
-    borderRadius: 9,
-    overflow: "hidden", // Ensure the image is contained within the border radius
-  },
-  image: {
+  cityImageContainer: {
     width: 100,
     height: 80,
+    borderRadius: 9,
+    overflow: "hidden",
+    position: 'relative',
+  },
+  cityImage: {
+    flex: 1,
+    borderRadius: 9,
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.3)', // Adjust the opacity as needed
+    borderRadius: 9,
   },
   cityName: {
-    textAlign: "center",
-    marginTop: 5,
+    position: 'absolute',
+    bottom: 25,
+    left: 0,
+    right: 0,
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
   },
 });

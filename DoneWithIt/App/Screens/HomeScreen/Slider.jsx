@@ -20,7 +20,7 @@ const [slider,setSlider]=useState();
         horizontal={true}
         data={slider}
         renderItem={({item,index})=>(
-            <View style={{marginLeft:15}}>
+            <View style={{marginLeft:5}}>
                 <Image source={{uri:item?.image?.url}} style={styles.sliderImage}></Image>
             </View>
         )}
@@ -31,8 +31,8 @@ const [slider,setSlider]=useState();
 
 const styles = StyleSheet.create({
     sliderImage:{
-        width:270,
-        height: 150,
+        width:290,
+        height: 160,
         borderRadius: 20,
     },
 

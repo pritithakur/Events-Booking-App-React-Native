@@ -8,29 +8,33 @@ import {
 import Heading from "../../components/Heading";
 import React, { useEffect, useState } from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { LinearGradient } from 'expo-linear-gradient';
+import { LinearGradient } from "expo-linear-gradient";
 import Colors from "../../Utils/Colors";
 
-export default function Events() {
-  const [event, setEvent] = useState();
+export default function Dance() {
+  const [dance, setdance] = useState([]);
+
   useEffect(() => {
-    getEvents();
+    getdance();
   }, []);
-  const getEvents = async () => {
+
+  const getdance = async () => {
     try {
-      const response = await fetch("http://192.168.2.247:3000/allEvents");
+      const response = await fetch(
+        "http://192.168.2.247:3000/allevents?event_category=dance"
+      );
       const data = await response.json();
-      setEvent(data);
+      setdance(data);
     } catch (error) {
-      console.error("Error fetching Events:", error);
+      console.error("Error fetching events:", error);
     }
   };
   return (
     <View>
-      <Heading text={"Today's Special"} isViewAll={true} />
+      <Heading text={"Parties & Fun"} isViewAll={true} />
       <FlatList
         horizontal
-        data={event}
+        data={dance}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item, index }) => (
           <View style={styles.eventsImageContainer}>
@@ -40,11 +44,11 @@ export default function Events() {
               imageStyle={styles.imageStyle}
             >
               <LinearGradient
-                colors={['rgba(0,0,0,0.6)', 'transparent']}
+                colors={["rgba(0,0,0,0.6)", "transparent"]}
                 style={styles.topOverlay}
               />
               <LinearGradient
-                colors={['transparent', 'rgba(0,0,0,0.6)']}
+                colors={["transparent", "rgba(0,0,0,0.6)"]}
                 style={styles.bottomOverlay}
               />
               <View style={styles.textContainer}>
@@ -54,7 +58,9 @@ export default function Events() {
                   <Text style={styles.locationText}>{item.city.city}</Text>
                 </View>
                 <View style={styles.cont}>
-                  <Text style={styles.price}>Price: ₹{item?.starting_price}</Text>
+                  <Text style={styles.price}>
+                    Price: ₹{item?.starting_price}
+                  </Text>
                   <Text style={styles.detailsText}>Details</Text>
                 </View>
               </View>
@@ -81,24 +87,24 @@ const styles = StyleSheet.create({
   imageBackground: {
     width: 290,
     height: 260,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
   },
   imageStyle: {
     borderRadius: 10,
   },
   topOverlay: {
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
     right: 0,
-    height: '10%',
+    height: "10%",
   },
   bottomOverlay: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 0,
     left: 0,
     right: 0,
-    height: '60%',
+    height: "60%",
   },
   textContainer: {
     padding: 10,
